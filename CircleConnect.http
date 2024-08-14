@@ -1,0 +1,6 @@
+@CircleConnect_HostAddress = http://localhost:5250
+
+GET {{CircleConnect_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
