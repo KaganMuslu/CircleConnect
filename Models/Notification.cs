@@ -3,10 +3,13 @@
     public class Notification : BaseEntity
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
 
         public required string Content { get; set; }
         public required string Type { get; set; }
-        public int IsRead { get; set; }
+        public bool IsRead { get; set; }
+
+        // Navigation Properties
+        public int UserId { get; set; }
+        public User User { get; set; }
     }
 }

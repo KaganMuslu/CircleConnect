@@ -6,5 +6,10 @@
 
         public required string Name { get; set; }
         public required string Description { get; set; }
+
+
+        // Navigation Properties
+        public List<CommunityCategory> CommunityCategories { get; set; }
+
     }
 }
