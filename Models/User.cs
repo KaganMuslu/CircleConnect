@@ -1,6 +1,6 @@
 ﻿namespace CircleConnect.Models
 {
-    public class Users : BaseEntity
+    public class User : BaseEntity
     {
         public int Id { get; set; }
         public required string Username { get; set; }

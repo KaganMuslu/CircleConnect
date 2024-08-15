@@ -1,6 +1,6 @@
 ﻿namespace CircleConnect.Models
 {
-    public class Categories : BaseEntity
+    public class Category : BaseEntity
     {
         public int Id { get; set; }
 

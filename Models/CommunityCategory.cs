@@ -1,8 +1,8 @@
 ﻿namespace CircleConnect.Models
 {
-    public class CreatedCommunities : BaseEntity
+    public class CommunityCategory
     {
-        public int UserId { get; set; }
         public int CommunityId { get; set; }
+        public int CategoryId { get; set; }
     }
 }
