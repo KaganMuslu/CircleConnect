@@ -11,9 +11,6 @@
         public int IsPrivate { get; set; }
 
         // Navigation Properties
-        public int UserId { get; set; }
-        public User User { get; set; }
-
         public List<Event> Events { get; set; }
 
         public List<CommunityCategory> CommunityCategories { get; set; }

@@ -1,9 +1,10 @@
 ﻿namespace CircleConnect.Models
 {
-    public class EventParticipant
+    public class EventParticipant : BaseEntity
     {
         public int Id { get; set; }
 
+        // Navigation Properties
         public int UserId { get; set; }
         public User User { get; set; }
 

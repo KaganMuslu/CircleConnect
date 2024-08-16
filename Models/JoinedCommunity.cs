@@ -2,6 +2,9 @@
 {
     public class JoinedCommunity : BaseEntity
     {
+        public int Id { get; set; }
+
+        // Navigation Properties
         public int UserId { get; set; }
         public User User { get; set; }
 
