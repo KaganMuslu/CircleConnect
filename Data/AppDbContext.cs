@@ -1,9 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CircleConnect.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace CircleConnect.Models
+namespace CircleConnect.Data
 {
     public class AppDbContext : DbContext
     {
+        public AppDbContext(DbContextOptions options) : base(options) { }
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Community> Communities { get; set; }
         public DbSet<CommunityCategory> CommunityCategories { get; set; }

@@ -9,13 +9,22 @@ namespace CircleConnect.Controllers
     [ApiController]
     public class CommunityController : ControllerBase
     {
+        #region Set AppDbContext
+
+        private readonly AppDbContext _appDbContext;
+        public CommunityController(AppDbContext appDbContext)
+        {
+            _appDbContext = appDbContext;
+        }
+
+        #endregion
 
         #region Get Requests
 
         [HttpGet]
         public IActionResult GetAllCommunities()
         {
-            var communities = ApplicationContext.Communities;
+            var communities = _appDbContext.Communities;
 
             return Ok(communities);
         }
@@ -23,7 +32,7 @@ namespace CircleConnect.Controllers
         [HttpGet("{id:int}")]
         public IActionResult GetOneCommunities([FromRoute(Name = "id")] int id)
         {
-            var community = ApplicationContext.Communities.Where(x => x.Id == id).SingleOrDefault();
+            var community = _appDbContext.Communities.Where(x => x.Id == id).SingleOrDefault();
 
             if (community == null)
                 return NotFound(); // 404
@@ -41,7 +50,7 @@ namespace CircleConnect.Controllers
             if (community == null)
                 return BadRequest(); // 400
 
-            ApplicationContext.Communities.Add(community);
+            _appDbContext.Communities.Add(community);
             return StatusCode(201, community);
             
         }
@@ -56,13 +65,13 @@ namespace CircleConnect.Controllers
             if (community == null)
                 return BadRequest();
 
-            var oldCommunity =  ApplicationContext.Communities.Where(x => x.Id == id).SingleOrDefault();
+            var oldCommunity = _appDbContext.Communities.Where(x => x.Id == id).SingleOrDefault();
 
             if (oldCommunity == null)
                 return NotFound();
 
-            ApplicationContext.Communities.Remove(oldCommunity);
-            ApplicationContext.Communities.Add(community);
+            _appDbContext.Communities.Remove((Community)oldCommunity);
+            _appDbContext.Communities.Add(community);
             return Ok(community);
         }
 
@@ -76,11 +85,11 @@ namespace CircleConnect.Controllers
             if (id == 0)
                 return BadRequest();
 
-            var community = ApplicationContext.Communities.Where(x => x.Id == id).SingleOrDefault();
+            var community = _appDbContext.Communities.Where(x => x.Id == id).SingleOrDefault();
             if (community == null)
                 return NotFound();
 
-            ApplicationContext.Communities.Remove(community);
+            _appDbContext.Communities.Remove((Community)community);
             return Ok();
         }
 
