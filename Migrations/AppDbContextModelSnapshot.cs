@@ -57,9 +57,6 @@ namespace CircleConnect.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -78,6 +75,35 @@ namespace CircleConnect.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Communities");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2024, 8, 17, 14, 52, 27, 345, DateTimeKind.Utc).AddTicks(8246),
+                            Description = "A community for technology enthusiasts to discuss the latest trends.",
+                            IsPrivate = 0,
+                            Location = "San Francisco",
+                            Name = "Tech Enthusiasts"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2024, 8, 17, 14, 52, 27, 345, DateTimeKind.Utc).AddTicks(8249),
+                            Description = "A group of book lovers sharing and discussing their favorite books.",
+                            IsPrivate = 1,
+                            Location = "New York",
+                            Name = "Book Club"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedAt = new DateTime(2024, 8, 17, 14, 52, 27, 345, DateTimeKind.Utc).AddTicks(8250),
+                            Description = "A community for people passionate about fitness and a healthy lifestyle.",
+                            IsPrivate = 0,
+                            Location = "Los Angeles",
+                            Name = "Fitness and Health"
+                        });
                 });
 
             modelBuilder.Entity("CircleConnect.Models.CommunityCategory", b =>
@@ -106,6 +132,38 @@ namespace CircleConnect.Migrations
                     b.ToTable("CommunityCategories");
                 });
 
+            modelBuilder.Entity("CircleConnect.Models.CommunityParticipant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CommunityId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isAdmin")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("isCreator")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CommunityId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("JoinedCommunities");
+                });
+
             modelBuilder.Entity("CircleConnect.Models.Event", b =>
                 {
                     b.Property<int>("Id")
@@ -118,6 +176,9 @@ namespace CircleConnect.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Description")
@@ -161,6 +222,9 @@ namespace CircleConnect.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("isAdmin")
+                        .HasColumnType("tinyint(1)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("EventId");
@@ -168,32 +232,6 @@ namespace CircleConnect.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("EventParticipants");
-                });
-
-            modelBuilder.Entity("CircleConnect.Models.JoinedCommunity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CommunityId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CommunityId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("JoinedCommunities");
                 });
 
             modelBuilder.Entity("CircleConnect.Models.Message", b =>
@@ -305,6 +343,25 @@ namespace CircleConnect.Migrations
                     b.Navigation("Community");
                 });
 
+            modelBuilder.Entity("CircleConnect.Models.CommunityParticipant", b =>
+                {
+                    b.HasOne("CircleConnect.Models.Community", "Community")
+                        .WithMany("JoinedCommunities")
+                        .HasForeignKey("CommunityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CircleConnect.Models.User", "User")
+                        .WithMany("JoinedCommunities")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Community");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("CircleConnect.Models.Event", b =>
                 {
                     b.HasOne("CircleConnect.Models.Community", "Community")
@@ -339,25 +396,6 @@ namespace CircleConnect.Migrations
                         .IsRequired();
 
                     b.Navigation("Event");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("CircleConnect.Models.JoinedCommunity", b =>
-                {
-                    b.HasOne("CircleConnect.Models.Community", "Community")
-                        .WithMany("JoinedCommunities")
-                        .HasForeignKey("CommunityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CircleConnect.Models.User", "User")
-                        .WithMany("JoinedCommunities")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Community");
 
                     b.Navigation("User");
                 });

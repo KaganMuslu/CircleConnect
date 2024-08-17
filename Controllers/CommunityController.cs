@@ -1,6 +1,7 @@
 ﻿using CircleConnect.Data;
 using CircleConnect.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CircleConnect.Controllers
@@ -11,20 +12,21 @@ namespace CircleConnect.Controllers
     {
         #region Set AppDbContext
 
-        private readonly AppDbContext _appDbContext;
+        private readonly AppDbContext _context;
         public CommunityController(AppDbContext appDbContext)
         {
-            _appDbContext = appDbContext;
+            _context = appDbContext;
         }
 
         #endregion
+
 
         #region Get Requests
 
         [HttpGet]
         public IActionResult GetAllCommunities()
         {
-            var communities = _appDbContext.Communities;
+            var communities = _context.Communities;
 
             return Ok(communities);
         }
@@ -32,7 +34,7 @@ namespace CircleConnect.Controllers
         [HttpGet("{id:int}")]
         public IActionResult GetOneCommunities([FromRoute(Name = "id")] int id)
         {
-            var community = _appDbContext.Communities.Where(x => x.Id == id).SingleOrDefault();
+            var community = _context.Communities.Where(x => x.Id == id).SingleOrDefault();
 
             if (community == null)
                 return NotFound(); // 404
@@ -50,7 +52,9 @@ namespace CircleConnect.Controllers
             if (community == null)
                 return BadRequest(); // 400
 
-            _appDbContext.Communities.Add(community);
+            _context.Communities.Add(community);
+            _context.SaveChanges();
+
             return StatusCode(201, community);
             
         }
@@ -62,17 +66,42 @@ namespace CircleConnect.Controllers
         [HttpPut("{id:int}")]
         public IActionResult UpdateCommunity([FromRoute] int id, [FromBody] Community community)
         {
-            if (community == null)
-                return BadRequest();
+            if (id == 0)
+                return BadRequest(); // 400
 
-            var oldCommunity = _appDbContext.Communities.Where(x => x.Id == id).SingleOrDefault();
+            if (community == null)
+                return BadRequest(); // 400
+
+            var oldCommunity = _context.Communities.Where(x => x.Id == id).SingleOrDefault();
 
             if (oldCommunity == null)
                 return NotFound();
 
-            _appDbContext.Communities.Remove((Community)oldCommunity);
-            _appDbContext.Communities.Add(community);
-            return Ok(community);
+            _context.Communities.Remove((Community)oldCommunity);
+            _context.Communities.Add(community);
+            _context.SaveChanges();
+
+            return Ok(community); // 200
+        }
+
+        #endregion
+
+        #region Patch Request
+
+        [HttpPatch("{id:int}")]
+        public IActionResult CommunityUpdate([FromRoute(Name = "id")] int id, [FromBody] JsonPatchDocument<Community> communityPatch)
+        {
+            if (id == 0)
+                return BadRequest(); // 400
+
+            var community = _context.Communities.Where(x => x.Id == id).SingleOrDefault();
+            if (community == null) 
+                return NotFound(); // 404
+
+            communityPatch.ApplyTo(community);
+            _context.SaveChanges();
+
+            return Ok(); // 200 or could be 204 NoContent
         }
 
         #endregion
@@ -83,14 +112,15 @@ namespace CircleConnect.Controllers
         public IActionResult DeleteCommunity([FromRoute] int id)
         {
             if (id == 0)
-                return BadRequest();
+                return BadRequest(); // 400
 
-            var community = _appDbContext.Communities.Where(x => x.Id == id).SingleOrDefault();
+            var community = _context.Communities.Where(x => x.Id == id).SingleOrDefault();
             if (community == null)
-                return NotFound();
+                return NotFound(); // 404
 
-            _appDbContext.Communities.Remove((Community)community);
-            return Ok();
+            _context.Communities.Remove(community);
+            _context.SaveChanges();
+            return Ok(); // 200
         }
 
         #endregion

@@ -7,14 +7,13 @@
         public required string Name { get; set; }
         public required string Description { get; set; }
         public required string Location { get; set; }
-        public required DateTime Date { get; set; }
         public int IsPrivate { get; set; }
 
         // Navigation Properties
-        public List<Event> Events { get; set; }
+        public List<Event>? Events { get; set; }
 
-        public List<CommunityCategory> CommunityCategories { get; set; }
-        public List<JoinedCommunity> JoinedCommunities { get; set; }
-        public List<Message> Messages { get; set; }
+        public List<CommunityCategory>? CommunityCategories { get; set; }
+        public List<CommunityParticipant>? JoinedCommunities { get; set; }
+        public List<Message>? Messages { get; set; }
     }
 }

@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace CircleConnect.Migrations
 {
     /// <inheritdoc />
@@ -45,7 +47,6 @@ namespace CircleConnect.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Location = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     IsPrivate = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
@@ -115,6 +116,7 @@ namespace CircleConnect.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Location = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     CommunityId = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
@@ -143,6 +145,8 @@ namespace CircleConnect.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    isAdmin = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    isCreator = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     CommunityId = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
@@ -227,6 +231,7 @@ namespace CircleConnect.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    isAdmin = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     EventId = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
@@ -248,6 +253,16 @@ namespace CircleConnect.Migrations
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.InsertData(
+                table: "Communities",
+                columns: new[] { "Id", "CreatedAt", "Description", "IsPrivate", "Location", "Name" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 8, 17, 14, 52, 27, 345, DateTimeKind.Utc).AddTicks(8246), "A community for technology enthusiasts to discuss the latest trends.", 0, "San Francisco", "Tech Enthusiasts" },
+                    { 2, new DateTime(2024, 8, 17, 14, 52, 27, 345, DateTimeKind.Utc).AddTicks(8249), "A group of book lovers sharing and discussing their favorite books.", 1, "New York", "Book Club" },
+                    { 3, new DateTime(2024, 8, 17, 14, 52, 27, 345, DateTimeKind.Utc).AddTicks(8250), "A community for people passionate about fitness and a healthy lifestyle.", 0, "Los Angeles", "Fitness and Health" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CommunityCategories_CategoryId",

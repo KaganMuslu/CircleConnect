@@ -9,9 +9,9 @@
         public required string Password { get; set; }
 
         // Navigation Properties
-        public List<Message> Messages { get; set; }
-        public List<Notification> Notifications { get; set; }
-        public List<EventParticipant> EventParticipants { get; set; }
-        public List<JoinedCommunity> JoinedCommunities { get; set; }
+        public List<Message>? Messages { get; set; }
+        public List<Notification>? Notifications { get; set; }
+        public List<EventParticipant>? EventParticipants { get; set; }
+        public List<CommunityParticipant>? JoinedCommunities { get; set; }
     }
 }

@@ -9,7 +9,7 @@
 
 
         // Navigation Properties
-        public List<CommunityCategory> CommunityCategories { get; set; }
+        public List<CommunityCategory>? CommunityCategories { get; set; }
 
     }
 }
