@@ -8,18 +8,12 @@ namespace CircleConnect.Controllers
 {
     [Route("api/community")]
     [ApiController]
-    public class CommunityController : ControllerBase
+    public class CommunityController : BaseController
     {
-        #region Set AppDbContext
-
-        private readonly AppDbContext _context;
-        public CommunityController(AppDbContext appDbContext)
+        // Dependency Injection (DI)
+        public CommunityController(AppDbContext appDbContext) : base(appDbContext)
         {
-            _context = appDbContext;
         }
-
-        #endregion
-
 
         #region Get Requests
 
