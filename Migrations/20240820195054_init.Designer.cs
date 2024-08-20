@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CircleConnect.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240817145227_init")]
+    [Migration("20240820195054_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -47,6 +47,29 @@ namespace CircleConnect.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6898),
+                            Description = "General technology ideas",
+                            Name = "Technology"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6900),
+                            Description = "Blockchain knowledge and ideas",
+                            Name = "Blockchain"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6900),
+                            Description = "Bussiness ideas to investors",
+                            Name = "Bussiness"
+                        });
                 });
 
             modelBuilder.Entity("CircleConnect.Models.Community", b =>
@@ -83,7 +106,7 @@ namespace CircleConnect.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 8, 17, 14, 52, 27, 345, DateTimeKind.Utc).AddTicks(8246),
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6999),
                             Description = "A community for technology enthusiasts to discuss the latest trends.",
                             IsPrivate = 0,
                             Location = "San Francisco",
@@ -92,7 +115,7 @@ namespace CircleConnect.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 8, 17, 14, 52, 27, 345, DateTimeKind.Utc).AddTicks(8249),
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7000),
                             Description = "A group of book lovers sharing and discussing their favorite books.",
                             IsPrivate = 1,
                             Location = "New York",
@@ -101,7 +124,7 @@ namespace CircleConnect.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 8, 17, 14, 52, 27, 345, DateTimeKind.Utc).AddTicks(8250),
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7001),
                             Description = "A community for people passionate about fitness and a healthy lifestyle.",
                             IsPrivate = 0,
                             Location = "Los Angeles",
@@ -206,6 +229,41 @@ namespace CircleConnect.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Events");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CommunityId = 3,
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7096),
+                            Date = new DateTime(2024, 9, 15, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "An event for tech enthusiasts to network and share knowledge.",
+                            Location = "Tech Park, Room 302",
+                            Name = "Tech Community Meetup",
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CommunityId = 1,
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7101),
+                            Date = new DateTime(2024, 10, 10, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "A hands-on workshop on AI and Machine Learning trends.",
+                            Location = "Innovation Hub, Room 210",
+                            Name = "AI and Machine Learning Workshop",
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CommunityId = 2,
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7102),
+                            Date = new DateTime(2024, 11, 5, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "A platform for startups to pitch their ideas to investors.",
+                            Location = "Business Center, Main Hall",
+                            Name = "Startup Pitch Day",
+                            UserId = 3
+                        });
                 });
 
             modelBuilder.Entity("CircleConnect.Models.EventParticipant", b =>
@@ -265,6 +323,32 @@ namespace CircleConnect.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Messages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CommunityId = 2,
+                            Content = "Hi, i am Kagan!",
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7202),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CommunityId = 1,
+                            Content = "I am a Junior Software Developer.",
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7203),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CommunityId = 3,
+                            Content = "I am passionate about technologies and love to learn new things.",
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7204),
+                            UserId = 2
+                        });
                 });
 
             modelBuilder.Entity("CircleConnect.Models.Notification", b =>
@@ -297,6 +381,35 @@ namespace CircleConnect.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Notifications");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "Ankara Techno Meeting",
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7298),
+                            IsRead = true,
+                            Type = "Meeting",
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Content = "Sabanci Event",
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7300),
+                            IsRead = true,
+                            Type = "Event",
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Content = "Book Worms Istanbul",
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7345),
+                            IsRead = false,
+                            Type = "Event",
+                            UserId = 2
+                        });
                 });
 
             modelBuilder.Entity("CircleConnect.Models.User", b =>
@@ -325,6 +438,32 @@ namespace CircleConnect.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6662),
+                            Email = "hako12@circle.com",
+                            Password = "a58f45g88jf85",
+                            Username = "hako12"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6665),
+                            Email = "fako15@circle.com",
+                            Password = "b58f45g88jf85",
+                            Username = "fako15"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedAt = new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6665),
+                            Email = "cako22@circle.com",
+                            Password = "c58f45g88jf85",
+                            Username = "cako22"
+                        });
                 });
 
             modelBuilder.Entity("CircleConnect.Models.CommunityCategory", b =>

@@ -255,13 +255,63 @@ namespace CircleConnect.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "CreatedAt", "Description", "Name" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6898), "General technology ideas", "Technology" },
+                    { 2, new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6900), "Blockchain knowledge and ideas", "Blockchain" },
+                    { 3, new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6900), "Bussiness ideas to investors", "Bussiness" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Communities",
                 columns: new[] { "Id", "CreatedAt", "Description", "IsPrivate", "Location", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 8, 17, 14, 52, 27, 345, DateTimeKind.Utc).AddTicks(8246), "A community for technology enthusiasts to discuss the latest trends.", 0, "San Francisco", "Tech Enthusiasts" },
-                    { 2, new DateTime(2024, 8, 17, 14, 52, 27, 345, DateTimeKind.Utc).AddTicks(8249), "A group of book lovers sharing and discussing their favorite books.", 1, "New York", "Book Club" },
-                    { 3, new DateTime(2024, 8, 17, 14, 52, 27, 345, DateTimeKind.Utc).AddTicks(8250), "A community for people passionate about fitness and a healthy lifestyle.", 0, "Los Angeles", "Fitness and Health" }
+                    { 1, new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6999), "A community for technology enthusiasts to discuss the latest trends.", 0, "San Francisco", "Tech Enthusiasts" },
+                    { 2, new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7000), "A group of book lovers sharing and discussing their favorite books.", 1, "New York", "Book Club" },
+                    { 3, new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7001), "A community for people passionate about fitness and a healthy lifestyle.", 0, "Los Angeles", "Fitness and Health" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "CreatedAt", "Email", "Password", "Username" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6662), "hako12@circle.com", "a58f45g88jf85", "hako12" },
+                    { 2, new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6665), "fako15@circle.com", "b58f45g88jf85", "fako15" },
+                    { 3, new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(6665), "cako22@circle.com", "c58f45g88jf85", "cako22" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Events",
+                columns: new[] { "Id", "CommunityId", "CreatedAt", "Date", "Description", "Location", "Name", "UserId" },
+                values: new object[,]
+                {
+                    { 1, 3, new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7096), new DateTime(2024, 9, 15, 10, 0, 0, 0, DateTimeKind.Unspecified), "An event for tech enthusiasts to network and share knowledge.", "Tech Park, Room 302", "Tech Community Meetup", 1 },
+                    { 2, 1, new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7101), new DateTime(2024, 10, 10, 14, 0, 0, 0, DateTimeKind.Unspecified), "A hands-on workshop on AI and Machine Learning trends.", "Innovation Hub, Room 210", "AI and Machine Learning Workshop", 2 },
+                    { 3, 2, new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7102), new DateTime(2024, 11, 5, 9, 0, 0, 0, DateTimeKind.Unspecified), "A platform for startups to pitch their ideas to investors.", "Business Center, Main Hall", "Startup Pitch Day", 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Messages",
+                columns: new[] { "Id", "CommunityId", "Content", "CreatedAt", "UserId" },
+                values: new object[,]
+                {
+                    { 1, 2, "Hi, i am Kagan!", new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7202), 1 },
+                    { 2, 1, "I am a Junior Software Developer.", new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7203), 3 },
+                    { 3, 3, "I am passionate about technologies and love to learn new things.", new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7204), 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Notifications",
+                columns: new[] { "Id", "Content", "CreatedAt", "IsRead", "Type", "UserId" },
+                values: new object[,]
+                {
+                    { 1, "Ankara Techno Meeting", new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7298), true, "Meeting", 1 },
+                    { 2, "Sabanci Event", new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7300), true, "Event", 3 },
+                    { 3, "Book Worms Istanbul", new DateTime(2024, 8, 20, 19, 50, 53, 637, DateTimeKind.Utc).AddTicks(7345), false, "Event", 2 }
                 });
 
             migrationBuilder.CreateIndex(

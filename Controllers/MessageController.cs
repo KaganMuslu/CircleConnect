@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CircleConnect.Controllers
 {
-    [Route("api/community")]
+    [Route("api/message")]
     [ApiController]
-    public class CommunityController : BaseController<Community>
+    public class MessageController : BaseController<Message>
     {
         // Dependency Injection (DI)
-        public CommunityController(AppDbContext appDbContext) : base(appDbContext)
+        public MessageController(AppDbContext appDbContext) : base(appDbContext)
         {
         }
 

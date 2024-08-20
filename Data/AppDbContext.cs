@@ -61,7 +61,12 @@ namespace CircleConnect.Data
 
 
             // Config Apply
+            modelBuilder.ApplyConfiguration(new UserConfig());
+            modelBuilder.ApplyConfiguration(new CategoryConfig());
             modelBuilder.ApplyConfiguration(new CommunityConfig());
+            modelBuilder.ApplyConfiguration(new EventConfig());
+            modelBuilder.ApplyConfiguration(new MessageConfig());
+            modelBuilder.ApplyConfiguration(new NotificationConfig());
 
         }
 
