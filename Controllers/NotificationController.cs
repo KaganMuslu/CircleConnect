@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CircleConnect.Controllers
 {
-    [Route("api/message")]
+    [Route("api/notification")]
     [ApiController]
     public class NotificationController : BaseController<Notification>
     {

@@ -40,7 +40,7 @@ namespace CircleConnect.Controllers
         #region Post Requests
 
         [HttpPost]
-        public IActionResult Add([FromBody] TEntity entity)
+        public virtual IActionResult Add([FromBody] TEntity entity)
         {
             if (entity == null)
                 return BadRequest(); // 400

@@ -1,0 +1,502 @@
+[
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Category, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/category",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Category, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Add",
+    "RelativePath": "api/category",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "CircleConnect.Models.Category",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Category, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetOne",
+    "RelativePath": "api/category/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Category, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "UpdateEvent",
+    "RelativePath": "api/category/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "entity",
+        "Type": "CircleConnect.Models.Category",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Category, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "PartialUpdateEvent",
+    "RelativePath": "api/category/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "entityPatch",
+        "Type": "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument\u00601[[CircleConnect.Models.Category, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Category, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "DeleteEvent",
+    "RelativePath": "api/category/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Community, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/community",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Community, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Add",
+    "RelativePath": "api/community",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "CircleConnect.Models.Community",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Community, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetOne",
+    "RelativePath": "api/community/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Community, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "UpdateEvent",
+    "RelativePath": "api/community/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "entity",
+        "Type": "CircleConnect.Models.Community",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Community, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "PartialUpdateEvent",
+    "RelativePath": "api/community/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "entityPatch",
+        "Type": "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument\u00601[[CircleConnect.Models.Community, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Community, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "DeleteEvent",
+    "RelativePath": "api/community/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.EventController",
+    "Method": "Add",
+    "RelativePath": "api/event",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newEvent",
+        "Type": "CircleConnect.Models.Event",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Event, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/event",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Event, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetOne",
+    "RelativePath": "api/event/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Event, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "UpdateEvent",
+    "RelativePath": "api/event/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "entity",
+        "Type": "CircleConnect.Models.Event",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Event, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "PartialUpdateEvent",
+    "RelativePath": "api/event/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "entityPatch",
+        "Type": "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument\u00601[[CircleConnect.Models.Event, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Event, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "DeleteEvent",
+    "RelativePath": "api/event/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Message, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/message",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Message, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Add",
+    "RelativePath": "api/message",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "CircleConnect.Models.Message",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Message, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetOne",
+    "RelativePath": "api/message/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Message, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "UpdateEvent",
+    "RelativePath": "api/message/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "entity",
+        "Type": "CircleConnect.Models.Message",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Message, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "PartialUpdateEvent",
+    "RelativePath": "api/message/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "entityPatch",
+        "Type": "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument\u00601[[CircleConnect.Models.Message, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Message, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "DeleteEvent",
+    "RelativePath": "api/message/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Notification, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/notification",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Notification, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Add",
+    "RelativePath": "api/notification",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "CircleConnect.Models.Notification",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Notification, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetOne",
+    "RelativePath": "api/notification/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Notification, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "UpdateEvent",
+    "RelativePath": "api/notification/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "entity",
+        "Type": "CircleConnect.Models.Notification",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Notification, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "PartialUpdateEvent",
+    "RelativePath": "api/notification/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "entityPatch",
+        "Type": "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument\u00601[[CircleConnect.Models.Notification, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CircleConnect.Controllers.BaseController\u00601[[CircleConnect.Models.Notification, CircleConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "DeleteEvent",
+    "RelativePath": "api/notification/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

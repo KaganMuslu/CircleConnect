@@ -1,19 +1,23 @@
 ﻿using CircleConnect.Data.Config;
 using CircleConnect.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace CircleConnect.Data
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Community> Communities { get; set; }
         public DbSet<CommunityCategory> CommunityCategories { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<EventParticipant> EventParticipants { get; set; }
-        public DbSet<CommunityParticipant> JoinedCommunities { get; set; }
+        public DbSet<CommunityParticipant> CommunityParticipants { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<User> Users { get; set; }
@@ -22,6 +26,17 @@ namespace CircleConnect.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            // Config Apply
+            modelBuilder.ApplyConfiguration(new UserConfig());
+            modelBuilder.ApplyConfiguration(new CategoryConfig());
+            modelBuilder.ApplyConfiguration(new CommunityConfig());
+            modelBuilder.ApplyConfiguration(new EventConfig());
+            modelBuilder.ApplyConfiguration(new MessageConfig());
+            modelBuilder.ApplyConfiguration(new NotificationConfig());
+
+
             #region Many To Many Realtions
 
             // CommunityCategory
@@ -58,15 +73,6 @@ namespace CircleConnect.Data
                 .HasForeignKey(ci => ci.UserId);
 
             #endregion
-
-
-            // Config Apply
-            modelBuilder.ApplyConfiguration(new UserConfig());
-            modelBuilder.ApplyConfiguration(new CategoryConfig());
-            modelBuilder.ApplyConfiguration(new CommunityConfig());
-            modelBuilder.ApplyConfiguration(new EventConfig());
-            modelBuilder.ApplyConfiguration(new MessageConfig());
-            modelBuilder.ApplyConfiguration(new NotificationConfig());
 
         }
 
