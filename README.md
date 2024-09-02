@@ -11,7 +11,10 @@ Topluluklar belirli bir tema veya ilgi alanı etrafında toplanabilir (örneğin
 -	Veritabanı: <a href="https://www.mysql.com/">MySQL</a>, topluluklar, etkinlikler ve kullanıcı profillerini saklamak için kullanılır.
 -	Bildirim Sistemi: Anlık bildirimler için <a href="https://redis.io/">Redis</a> Pub/Sub kullanılır.
 -	Docker: <a href="https://www.docker.com/">Docker</a> kullanarak API'nin farklı ortamlarda kolayca dağıtımı sağlanır.
--	<a href="https://dotnet.microsoft.com/en-us/">.NET Core</a>: API'nin geliştirilmesinde kullanılır, performans ve esneklik için tercih edilir.
+-	Geliştirme: <a href="https://dotnet.microsoft.com/en-us/">.NET Core</a>, REST API'nin geliştirilmesinde kullanılır, performans ve esneklik için tercih edilir.
+
+
+![image](https://github.com/user-attachments/assets/bf2c463d-5fcc-4882-8a0b-087cef5d9dc1)
 
 
 ### Özellikler
